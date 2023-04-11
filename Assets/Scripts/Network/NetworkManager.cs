@@ -45,6 +45,13 @@ namespace Network
                 GameManager.Instance.LoadLobby();
             else
                 GameManager.Instance.LoadCurrentScene();
+            
+        #if UNITY_STANDALONE_WIN
+            Debug.Log("test");
+            Instantiate(new GameObject("player windows"), new Vector3(0, 0, 0), new Quaternion());
+        #else
+                Instantiate(new GameObject("player VR"), new Vector3(0, 0, 0), new Quaternion());
+        #endif
             //photonView.RPC("TurnOnLight",RpcTarget.All,"vrai");
         }
 
@@ -114,6 +121,7 @@ namespace Network
 
         public void ChangeSceneToMain()
         {
+            // TODO fix the issue when we leave the game and we can't recreate a scene
             // if (PhotonNetwork.IsMasterClient)
             //     PhotonNetwork.LeaveRoom();
             GameManager.Instance.LoadDefaultScene();
