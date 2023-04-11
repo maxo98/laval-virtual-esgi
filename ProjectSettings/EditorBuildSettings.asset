@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Samples/XR Interaction Toolkit/2.3.1/Hands Interaction Demo/Runtime/HandsDemoScene.unity
-    guid: 3ff35cecbcc52cc42945cf531638a60a
-  - enabled: 1
     path: Assets/Scenes/HandTracking.unity
     guid: a66820bbba0aa144b812f319c685fc2f
   m_configObjects:
