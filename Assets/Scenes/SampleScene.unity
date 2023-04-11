@@ -235,8 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   City: {fileID: 8221002039117731598, guid: f4095a465542ff843a514610a36d61e0, type: 3}
   buildingsPrefab:
-  - {fileID: 4663389217622573077, guid: 985fd9033274e7f4b835d921421ee2ba, type: 3}
-  - {fileID: 9198692960949887520, guid: 5011a0336fab586459313123bed11b33, type: 3}
+  - {fileID: 9092471585600974208, guid: 00eb0751f2930f146b849e085dd1ee19, type: 3}
+  - {fileID: 9215682916396954473, guid: c61b599c3d35ac24fa12b7829e2fc561, type: 3}
   buildingsEnum: 0200000003000000
   buildingsConso: 200300005e010000
   buildingsSmallMax: 0100000001000000
