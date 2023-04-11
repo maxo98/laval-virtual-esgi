@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -240,11 +240,12 @@ MonoBehaviour:
   buildingsEnum: 0200000003000000
   buildingsMax: 0100000001000000
   buildingsMin: 0300000003000000
-  Mountain: {fileID: 7784687312586007977, guid: 739f770842ded684ea8e0c1f82cad778,
-    type: 3}
-  Plain: {fileID: 3308071376632088316, guid: 4ab2e2d52c39824468eaf4d11cb2bef9, type: 3}
   River: {fileID: 6119894953415040910, guid: 69ee72eb02153ba4ba738bf2d234336a, type: 3}
-  size: 20
+  biomePrefab:
+  - {fileID: 7784687312586007977, guid: 739f770842ded684ea8e0c1f82cad778, type: 3}
+  - {fileID: 3308071376632088316, guid: 4ab2e2d52c39824468eaf4d11cb2bef9, type: 3}
+  biomeEnum: 0400000005000000
+  mapSize: 40
   citySize: 5
 --- !u!1 &410087039
 GameObject:

@@ -9,9 +9,9 @@ public class Generator : MonoBehaviour
     public List<GridCase> buildingsEnum;
     public List<int> buildingsMax;
     public List<int> buildingsMin;
-    public GameObject Mountain;
-    public GameObject Plain;
     public GameObject River;
+    public List<GameObject> biomePrefab;
+    public List<GridCase> biomeEnum;
 
     public enum GridCase
     {
@@ -41,7 +41,7 @@ public class Generator : MonoBehaviour
         {
             for(int y = 0; y < mapSize; y++)
             {
-                grid[x, y] = GridCase.Plain;//GridCase.Empty;
+                grid[x, y] = GridCase.Empty;
             }
         }
 
@@ -55,6 +55,57 @@ public class Generator : MonoBehaviour
                 grid[x, y] = GridCase.City;
             }
         }
+
+        //Generate biomes
+        List<Queue<Vector2Int>> biomeGrowth = new List<Queue<Vector2Int>>();
+
+        for(int i = 0; i < biomeEnum.Count; i++)
+        {
+            biomeGrowth.Add(new Queue<Vector2Int>());
+
+            Vector2Int posBiome = new Vector2Int();
+
+            do{
+                posBiome.x = Random.Range(0, mapSize);
+                posBiome.y = Random.Range(0, mapSize);
+            }while(grid[posBiome.x, posBiome.y] != GridCase.Empty);
+            
+            biomeGrowth[biomeGrowth.Count - 1].Enqueue(posBiome);
+            grid[posBiome.x, posBiome.y] = biomeEnum[i];
+        }
+
+        int empty = 0;
+
+        do{
+
+            for(int i = 0; i < biomeEnum.Count; i++)
+            {
+                if(biomeGrowth[i].Count != 0)
+                {
+                    Vector2Int posBiome = biomeGrowth[i].Dequeue();
+
+                    for(int x = -1; x <= 1; x++)
+                    {
+                        for(int y = -1; y <= 1; y++)
+                        {
+                            Vector2Int newPos = new Vector2Int(posBiome.x + x, posBiome.y + y);
+
+                            if(Mathf.Abs(x) != Mathf.Abs(y) && newPos.x >= 0 && newPos.x < mapSize && newPos.y >= 0 && newPos.y < mapSize && grid[newPos.x, newPos.y] == GridCase.Empty)
+                            {
+                                grid[newPos.x, newPos.y] = biomeEnum[i];
+                                biomeGrowth[i].Enqueue(newPos);
+                            }
+                        }
+                    }
+
+                    if(biomeGrowth[i].Count == 0)
+                    {
+                        empty++;
+                    }
+                }
+            }
+
+        }while(empty != biomeEnum.Count);
 
         //River
         Vector2 riverDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
@@ -145,14 +196,24 @@ public class Generator : MonoBehaviour
         {
             for(int y = 0; y < mapSize; y++)
             {
-                GameObject newInstant = Mountain;
+                GameObject newInstant = River;
 
                 //Search type in buildings list
                 for(int i = 0; i < buildingsEnum.Count; i++)
                 {
-                    if(grid[x, y] != buildingsEnum[i])
+                    if(grid[x, y] == buildingsEnum[i])
                     {
                         newInstant = buildingsPrefab[i];
+                        break;
+                    }
+                }
+
+                //Search type in biome list
+                for(int i = 0; i < biomeEnum.Count; i++)
+                {
+                    if(grid[x, y] == biomeEnum[i])
+                    {
+                        newInstant = biomePrefab[i];
                         break;
                     }
                 }
@@ -164,10 +225,6 @@ public class Generator : MonoBehaviour
                         newInstant = City;
                         break;
 
-                    case GridCase.Plain:
-                        newInstant = Plain;
-                        break;
-
                     case GridCase.River:
                         newInstant = River;
                         break;
@@ -176,7 +233,6 @@ public class Generator : MonoBehaviour
                 Instantiate(newInstant, new Vector3(x - mapSize/2, 0, y - mapSize/2), new Quaternion());
             }
         }
-
     }
 
     // Update is called once per frame
