@@ -632,12 +632,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3544120632578630507, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3976003096146137998, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
         type: 3}
       propertyPath: moveAction
       value: 
       objectReference: {fileID: 2437255992003679575, guid: 0c78d257e86710f4dbed3e6156f03e95,
         type: 3}
+    - target: {fileID: 3976003096146137998, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
+        type: 3}
+      propertyPath: photonView
+      value: 
+      objectReference: {fileID: 6179009995531767626}
+    - target: {fileID: 3976003096146137998, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
+        type: 3}
+      propertyPath: photonTransformView
+      value: 
+      objectReference: {fileID: 6179009995531767625}
     - target: {fileID: 6179009994430847829, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,3 +695,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64, type: 3}
+--- !u!114 &6179009995531767625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7612920704835870268, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
+    type: 3}
+  m_PrefabInstance: {fileID: 6179009995531767624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6179009995531767626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3544120632578630507, guid: 3d95c5ecc39dbbf4089ee3ee98ac1d64,
+    type: 3}
+  m_PrefabInstance: {fileID: 6179009995531767624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
