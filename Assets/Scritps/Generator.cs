@@ -56,6 +56,61 @@ public class Generator : MonoBehaviour
             }
         }
 
+        //River
+        Vector2 riverDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+        
+        int side = Random.Range(0, 2);
+        int pos = Random.Range(3, mapSize-3);
+
+        Vector2Int riverPos = new Vector2Int(0, 0);
+
+        Vector2Int[] riverMove = new Vector2Int[2];
+
+        if(side == 0)
+        {
+            if(riverDir.x < 0)
+            {
+                riverPos.x = mapSize-1;
+            }
+
+            riverPos.y = pos;
+        }else{
+            if(riverDir.y < 0)
+            {
+                riverPos.y = mapSize-1;
+            }
+
+            riverPos.x = pos;
+        }
+
+        if(riverDir.x < 0)
+        {
+            riverMove[0] = new Vector2Int(-1, 0);
+        }else{
+            riverMove[0] = new Vector2Int(1, 0);
+        }
+
+        if(riverDir.y < 0)
+        {
+            riverMove[1] = new Vector2Int(0, -1);
+        }else{
+            riverMove[1] = new Vector2Int(0, 1);
+        }
+
+        grid[riverPos.x, riverPos.y] = GridCase.River;
+
+        do{
+            side = Random.Range(0, 2);
+
+            riverPos += riverMove[side];
+
+            if(riverPos.x >= 0 && riverPos.x < mapSize && riverPos.y >= 0 && riverPos.y < mapSize)
+            {
+                grid[riverPos.x, riverPos.y] = GridCase.River;
+            }
+
+        }while(riverPos.x > 0 && riverPos.x < mapSize && riverPos.y > 0 && riverPos.y < mapSize);
+
         //Place buildings
         for(int buildingIndex = 0; buildingIndex < buildingsPrefab.Count; buildingIndex++)
         {
@@ -111,6 +166,10 @@ public class Generator : MonoBehaviour
 
                     case GridCase.Plain:
                         newInstant = Plain;
+                        break;
+
+                    case GridCase.River:
+                        newInstant = River;
                         break;
                 }
 
