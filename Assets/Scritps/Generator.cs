@@ -24,7 +24,7 @@ public class Generator : MonoBehaviour
         River
     }
 
-    public int size = 40;
+    public int mapSize = 40;
     public int citySize = 5;
 
     private GridCase[,] grid;
@@ -34,18 +34,18 @@ public class Generator : MonoBehaviour
     {
         //Random.InitState(42);
 
-        grid = new GridCase[size, size];
+        grid = new GridCase[mapSize, mapSize];
 
         //Fill grid with empty
-        for(int x = 0; x < size; x++)
+        for(int x = 0; x < mapSize; x++)
         {
-            for(int y = 0; y < size; y++)
+            for(int y = 0; y < mapSize; y++)
             {
                 grid[x, y] = GridCase.Plain;//GridCase.Empty;
             }
         }
 
-        int startPos = size/2 - citySize/2;
+        int startPos = mapSize/2 - citySize/2;
 
         //Generate empty city
         for(int x = startPos; x < (startPos + citySize); x++)
@@ -86,9 +86,9 @@ public class Generator : MonoBehaviour
         }
 
         //Generate instances
-        for(int x = 0; x < size; x++)
+        for(int x = 0; x < mapSize; x++)
         {
-            for(int y = 0; y < size; y++)
+            for(int y = 0; y < mapSize; y++)
             {
                 GameObject newInstant = Mountain;
 
@@ -114,7 +114,7 @@ public class Generator : MonoBehaviour
                         break;
                 }
 
-                Instantiate(newInstant, new Vector3(x - size/2, 0, y - size/2), new Quaternion());
+                Instantiate(newInstant, new Vector3(x - mapSize/2, 0, y - mapSize/2), new Quaternion());
             }
         }
 
