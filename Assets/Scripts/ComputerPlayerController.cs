@@ -11,6 +11,8 @@ public class ComputerPlayerController : MonoBehaviour
     [SerializeField] private InputActionReference rotateAction, zoomAction, mouseLeftClick, mousePosition;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float zoomSpeed;
+
+    [SerializeField] private List<GameObject> constructionsPrefab;
     
     // camera movements
     private float _rotation;
@@ -63,5 +65,13 @@ public class ComputerPlayerController : MonoBehaviour
     void OnMouseLeftClickOff(InputAction.CallbackContext context)
     {
         
+    }
+
+    public void CreateNewGenerator(int type)
+    {
+        Debug.Log(type);
+        _grabbedObject = Instantiate(constructionsPrefab[type]); // instanciation des objets a placé dans la scene
+        _grabbedObject.transform.position = new Vector3(0, 0, 0);
+        _objectGrabbed = true;
     }
 }
