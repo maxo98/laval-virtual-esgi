@@ -5,19 +5,32 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public GameObject City;
+
     public List<GameObject> buildingsPrefab;
     public List<GridCase> buildingsEnum;
+    public List<int> buildingsConso;
+
     public List<int> buildingsSmallMax;
     public List<int> buildingsSmallMin;
     public List<int> buildingsMediumMax;
     public List<int> buildingsMediumMin;
     public List<int> buildingsBigMax;
     public List<int> buildingsBigMin;
+    public int consoSmallMax;
+    public int consoSmallMin;
+    public int consoMediumMax;
+    public int consoMediumMin;
+    public int consoBigMax;
+    public int consoBigMin;
+
     public GameObject River;
+
     public List<GameObject> biomePrefab;
     public List<GridCase> biomeEnum;
 
     public CitySizeType cityType;
+
+    public int consomation = 0;
 
     public enum CitySizeType
     {
@@ -49,6 +62,8 @@ public class Generator : MonoBehaviour
 
         int cityMin = 0;
         int cityMax = 0;
+        int consoMax = 0;
+        int consoMin = 0;
         List<int> buildingsMin = new List<int>();
         List<int> buildingsMax = new List<int>();
 
@@ -59,6 +74,8 @@ public class Generator : MonoBehaviour
                 cityMax = 11;
                 buildingsMin = buildingsSmallMin;
                 buildingsMax = buildingsSmallMax;
+                consoMin = consoSmallMin;
+                consoMax = consoSmallMax;
                 break;
 
             case CitySizeType.Medium:
@@ -66,6 +83,8 @@ public class Generator : MonoBehaviour
                 cityMax = 21;
                 buildingsMin = buildingsMediumMin;
                 buildingsMax = buildingsMediumMax;
+                consoMin = consoMediumMin;
+                consoMax = consoMediumMax;
                 break;
 
             case CitySizeType.Big:
@@ -73,11 +92,15 @@ public class Generator : MonoBehaviour
                 cityMax = 30;
                 buildingsMin = buildingsBigMin;
                 buildingsMax = buildingsBigMax;
+                consoMin = consoBigMin;
+                consoMax = consoBigMax;
                 break;
         }
 
+        
         citySize = Random.Range(cityMin, cityMax);
         mapSize = (int)((double)citySize * 2.0);
+        consomation = consoMin + (citySize - cityMin) * (consoMax - consoMin) / (cityMax - cityMin);
 
         grid = new GridCase[mapSize, mapSize];
 
@@ -241,6 +264,7 @@ public class Generator : MonoBehaviour
                 if(tryouts > 0)
                 {
                     grid[x, y] = buildingsEnum[buildingIndex];
+                    consomation += buildingsConso[buildingIndex];
                 }
             }
         }
