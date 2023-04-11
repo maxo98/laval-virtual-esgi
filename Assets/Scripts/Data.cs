@@ -12,3 +12,8 @@ public struct GeneratorData
 {
     public float ElectricityProduction { get; set; }
 }
+
+public enum ConstructionType
+{
+    Generator
+}
