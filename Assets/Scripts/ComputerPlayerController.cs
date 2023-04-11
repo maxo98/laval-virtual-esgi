@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +12,10 @@ public class ComputerPlayerController : MonoBehaviour
     [SerializeField] private InputActionReference rotateAction, zoomAction, mouseLeftClick, mousePosition;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float zoomSpeed;
-
     [SerializeField] private List<GameObject> constructionsPrefab;
+    [SerializeField] private PhotonView photonView;
+    [SerializeField] private PhotonTransformView photonTransformView;
+    public bool IsSinglePlayer { get; set; }
     
     // camera movements
     private float _rotation;
@@ -26,6 +29,7 @@ public class ComputerPlayerController : MonoBehaviour
         mouseLeftClick.action.Enable();
         mouseLeftClick.action.performed += OnMouseLeftClickOn;
         mouseLeftClick.action.canceled += OnMouseLeftClickOff;
+        
     }
 
     // Update is called once per frame
@@ -69,9 +73,16 @@ public class ComputerPlayerController : MonoBehaviour
 
     public void CreateNewGenerator(int type)
     {
-        Debug.Log(type);
-        _grabbedObject = Instantiate(constructionsPrefab[type]); // instanciation des objets a placé dans la scene
-        _grabbedObject.transform.position = new Vector3(0, 0, 0);
-        _objectGrabbed = true;
+        if (IsSinglePlayer)
+        {
+            _grabbedObject = Instantiate(constructionsPrefab[type]); // instanciation des objets a placé dans la scene
+            _grabbedObject.transform.position = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            _grabbedObject = PhotonNetwork.Instantiate(constructionsPrefab[type].name, new Vector3(0, 0, 0), Quaternion.identity);
+            _objectGrabbed = true;
+        }
+        
     }
 }

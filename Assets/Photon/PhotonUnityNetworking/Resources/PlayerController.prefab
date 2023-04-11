@@ -61,6 +61,8 @@ MonoBehaviour:
   zoomSpeed: 5
   constructionsPrefab:
   - {fileID: 2089918484872568400, guid: 12b8939f662cdcf40b4f6f5ac1894499, type: 3}
+  photonView: {fileID: 0}
+  photonTransformView: {fileID: 0}
 --- !u!114 &5735118593779046650
 MonoBehaviour:
   m_ObjectHideFlags: 0

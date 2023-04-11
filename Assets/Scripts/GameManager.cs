@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     public enum Scenes
     {
         Default = 0,
-        Lobby = 1,
-        Game = 2
+        Game = 1,
+        Lobby = 2
     }
 
     private int _currentScene;

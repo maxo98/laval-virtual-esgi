@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Network
     {
         private static NetworkManager instance = null;
         public static NetworkManager Instance => instance;
+
+     
 
         #region Private Fields
 
@@ -42,16 +45,10 @@ namespace Network
         public override void OnJoinedRoom()
         {
             if (PhotonNetwork.IsMasterClient)
-                GameManager.Instance.LoadLobby();
+                GameManager.Instance.LoadGameScene();
             else
                 GameManager.Instance.LoadCurrentScene();
             
-        #if UNITY_STANDALONE_WIN
-            Debug.Log("test");
-            Instantiate(new GameObject("player windows"), new Vector3(0, 0, 0), new Quaternion());
-        #else
-                Instantiate(new GameObject("player VR"), new Vector3(0, 0, 0), new Quaternion());
-        #endif
             //photonView.RPC("TurnOnLight",RpcTarget.All,"vrai");
         }
 

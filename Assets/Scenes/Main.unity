@@ -964,6 +964,23 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 270986734}
+    - target: {fileID: 6313776867810223318, guid: e8e0cafd9655aa74bb2f578581ae6c8e,
+        type: 3}
+      propertyPath: playerPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313776867810223318, guid: e8e0cafd9655aa74bb2f578581ae6c8e,
+        type: 3}
+      propertyPath: playerPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 459469303964461394, guid: 568a1e129f9429243b6090a34d54397c,
+        type: 3}
+    - target: {fileID: 6313776867810223318, guid: e8e0cafd9655aa74bb2f578581ae6c8e,
+        type: 3}
+      propertyPath: playerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8683839725813544875, guid: 35320903c65b3b441b5757aeb571f8da,
+        type: 3}
     - target: {fileID: 6313776867810223319, guid: e8e0cafd9655aa74bb2f578581ae6c8e,
         type: 3}
       propertyPath: m_RootOrder
