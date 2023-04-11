@@ -7,11 +7,24 @@ public class Generator : MonoBehaviour
     public GameObject City;
     public List<GameObject> buildingsPrefab;
     public List<GridCase> buildingsEnum;
-    public List<int> buildingsMax;
-    public List<int> buildingsMin;
+    public List<int> buildingsSmallMax;
+    public List<int> buildingsSmallMin;
+    public List<int> buildingsMediumMax;
+    public List<int> buildingsMediumMin;
+    public List<int> buildingsBigMax;
+    public List<int> buildingsBigMin;
     public GameObject River;
     public List<GameObject> biomePrefab;
     public List<GridCase> biomeEnum;
+
+    public CitySizeType cityType;
+
+    public enum CitySizeType
+    {
+        Small,
+        Medium,
+        Big
+    }
 
     public enum GridCase
     {
@@ -24,8 +37,8 @@ public class Generator : MonoBehaviour
         River
     }
 
-    public int mapSize = 40;
-    public int citySize = 5;
+    private int mapSize;
+    private int citySize;
 
     private GridCase[,] grid;
 
@@ -33,6 +46,38 @@ public class Generator : MonoBehaviour
     void Start()
     {
         //Random.InitState(42);
+
+        int cityMin = 0;
+        int cityMax = 0;
+        List<int> buildingsMin = new List<int>();
+        List<int> buildingsMax = new List<int>();
+
+        switch(cityType)
+        {
+            case CitySizeType.Small:
+                cityMin = 2;
+                cityMax = 11;
+                buildingsMin = buildingsSmallMin;
+                buildingsMax = buildingsSmallMax;
+                break;
+
+            case CitySizeType.Medium:
+                cityMin = 11;
+                cityMax = 21;
+                buildingsMin = buildingsMediumMin;
+                buildingsMax = buildingsMediumMax;
+                break;
+
+            case CitySizeType.Big:
+                cityMin = 21;
+                cityMax = 30;
+                buildingsMin = buildingsBigMin;
+                buildingsMax = buildingsBigMax;
+                break;
+        }
+
+        citySize = Random.Range(cityMin, cityMax);
+        mapSize = (int)((double)citySize * 2.0);
 
         grid = new GridCase[mapSize, mapSize];
 
@@ -116,7 +161,7 @@ public class Generator : MonoBehaviour
         }
         
         int side = Random.Range(0, 2);
-        int pos = Random.Range(3, mapSize-3);
+        int pos = Random.Range(2, mapSize-2);
 
         Vector2Int riverPos = new Vector2Int(0, 0);
 
@@ -170,6 +215,8 @@ public class Generator : MonoBehaviour
         }while(riverPos.x >= 0 && riverPos.x < mapSize && riverPos.y >= 0 && riverPos.y < mapSize);
 
         //Place buildings
+        
+
         for(int buildingIndex = 0; buildingIndex < buildingsPrefab.Count; buildingIndex++)
         {
             int n = Random.Range(buildingsMin[buildingIndex], buildingsMax[buildingIndex] + 1);
