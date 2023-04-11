@@ -92,6 +92,7 @@ public class Generator : MonoBehaviour
             {
                 GameObject newInstant = Mountain;
 
+                //Search type in buildings list
                 for(int i = 0; i < buildingsEnum.Count; i++)
                 {
                     if(grid[x, y] != buildingsEnum[i])
@@ -101,6 +102,7 @@ public class Generator : MonoBehaviour
                     }
                 }
 
+                //Search prefab in others
                 switch(grid[x, y])
                 {
                     case GridCase.City:
