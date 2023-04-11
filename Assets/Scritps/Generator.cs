@@ -109,6 +109,11 @@ public class Generator : MonoBehaviour
 
         //River
         Vector2 riverDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+
+        while(riverDir.x == 0 || riverDir.x == 0)
+        {
+            riverDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+        }
         
         int side = Random.Range(0, 2);
         int pos = Random.Range(3, mapSize-3);
@@ -150,6 +155,8 @@ public class Generator : MonoBehaviour
 
         grid[riverPos.x, riverPos.y] = GridCase.River;
 
+        
+
         do{
             side = Random.Range(0, 2);
 
@@ -160,7 +167,7 @@ public class Generator : MonoBehaviour
                 grid[riverPos.x, riverPos.y] = GridCase.River;
             }
 
-        }while(riverPos.x > 0 && riverPos.x < mapSize && riverPos.y > 0 && riverPos.y < mapSize);
+        }while(riverPos.x >= 0 && riverPos.x < mapSize && riverPos.y >= 0 && riverPos.y < mapSize);
 
         //Place buildings
         for(int buildingIndex = 0; buildingIndex < buildingsPrefab.Count; buildingIndex++)
