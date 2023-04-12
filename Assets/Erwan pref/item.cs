@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class item : MonoBehaviour
+public class item : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Material mat;
     public Transform originSpawn;
     public bool inPlaceHolder = false;
     public Transform lastPlaceHolder;
+    public GameObject bigModel;
 
 
     public void OnPickUp()
@@ -23,10 +25,12 @@ public class item : MonoBehaviour
     {
         if (inPlaceHolder)
         {
-            transform.parent = lastPlaceHolder;
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = quaternion.identity;
+            GameObject temp = PhotonNetwork.Instantiate(this.name.Replace("(Clone)", ""), transform.position, transform.rotation);
+            temp.transform.parent = lastPlaceHolder;
+            temp.transform.localPosition = Vector3.zero;
+            temp.transform.localRotation = quaternion.identity;
             originSpawn.GetComponent<placeHolder>().SpawnItem();
+            Destroy(gameObject);
         }
         else
         {
