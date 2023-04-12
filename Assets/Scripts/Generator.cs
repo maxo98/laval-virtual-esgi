@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class Generator : MonoBehaviour
@@ -312,7 +313,7 @@ public class Generator : MonoBehaviour
                         break;
                 }
 
-                Instantiate(newInstant, new Vector3(x, 0, y), new Quaternion());
+                PhotonNetwork.Instantiate(newInstant.name, new Vector3(x, 0, y), new Quaternion());
             }
         }
 
