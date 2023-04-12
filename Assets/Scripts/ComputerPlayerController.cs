@@ -10,7 +10,8 @@ public class ComputerPlayerController : MonoBehaviour
 {
     [SerializeField] private DragAndDropManager dragAndDropManager;
     [SerializeField] private Camera camera;
-    [SerializeField] private GameObject target;
+    public GameObject target;
+    public Generator mapGenerator;
     [SerializeField] private InputActionReference rotateAction, zoomAction, mouseLeftClick, mousePosition;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float zoomSpeed;
@@ -47,9 +48,13 @@ public class ComputerPlayerController : MonoBehaviour
 
     void DragObject()
     {
+        var plane = new Plane(Vector3.up, new Vector3(0 ,0,0));
         var ray = camera.ScreenPointToRay(mousePosition.action.ReadValue<Vector2>());
-        if (!Physics.Raycast(ray, out var hit, 100)) return;
-        _grabbedObject.transform.position = new Vector3(hit.point.x, _grabbedObject.transform.position.y, hit.point.z);
+        if (!plane.Raycast(ray, out var hit)) return;
+        //if (!Physics.Raycast(ray, out var hit, 100)) return;
+        var position = ray.GetPoint(hit);
+        position.y = 1;
+        _grabbedObject.transform.position = position;
     }
 
     void OnMouseLeftClickOn(InputAction.CallbackContext context)
@@ -80,15 +85,18 @@ public class ComputerPlayerController : MonoBehaviour
         {
             _grabbedObject = Instantiate(generatorPrefabs[type]); // instanciation des objets a placé dans la scene
             _grabbedObject.transform.position = new Vector3(0, 1, 0);
-            _grabbedObject.GetComponent<GeneratorBehavior>().controller = this;
-            _grabbedObject.GetComponent<GeneratorBehavior>().dragAndDropManager = dragAndDropManager;
+            var generatorBehavior = _grabbedObject.GetComponent<GeneratorBehavior>();
+            generatorBehavior.controller = this;
+            generatorBehavior.dragAndDropManager = dragAndDropManager;
         }
         else
         {
             _grabbedObject = PhotonNetwork.Instantiate(generatorPrefabs[type].name, new Vector3(0, 1, 0), Quaternion.identity);
             _objectGrabbed = true;
-            _grabbedObject.GetComponent<GeneratorBehavior>().controller = this;
-            _grabbedObject.GetComponent<GeneratorBehavior>().dragAndDropManager = dragAndDropManager;
+            var generatorBehavior = _grabbedObject.GetComponent<GeneratorBehavior>();
+            generatorBehavior.controller = this;
+            generatorBehavior.dragAndDropManager = dragAndDropManager;
+            generatorBehavior.mapGenerator = mapGenerator;
         }
         
     }

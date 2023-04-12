@@ -39,13 +39,13 @@ public class Generator : MonoBehaviour
         River
     }
 
-    private int mapSize;
-    private int citySize;
+    public int mapSize;
+    public int cityStart;
+    public int citySize;
 
-    private GridCase[,] grid;
+    public GridCase[,] grid { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+    public void GenerateMap()
     {
         //Random.InitState(42);
 
@@ -92,12 +92,12 @@ public class Generator : MonoBehaviour
             }
         }
 
-        int startPos = mapSize/2 - citySize/2;
+        cityStart = mapSize/2 - citySize/2;
 
         //Generate empty city
-        for(int x = startPos; x < (startPos + citySize); x++)
+        for(int x = cityStart; x < (cityStart + citySize); x++)
         {
-            for(int y = startPos; y < (startPos + citySize); y++)
+            for(int y = cityStart; y < (cityStart + citySize); y++)
             {
                 grid[x, y] = GridCase.City;
             }
@@ -232,8 +232,8 @@ public class Generator : MonoBehaviour
 
                 do{
 
-                    x = Random.Range(0, citySize) + startPos;
-                    y = Random.Range(0, citySize) + startPos;
+                    x = Random.Range(0, citySize) + cityStart;
+                    y = Random.Range(0, citySize) + cityStart;
                     tryouts--;
                     
                 }while((grid[x, y] != GridCase.City || grid[x, y + 1] == buildingsEnum[buildingIndex]

@@ -51,6 +51,7 @@ MonoBehaviour:
   dragAndDropManager: {fileID: 8216663565055899066}
   camera: {fileID: 6179009994430847828}
   target: {fileID: 1524504683752645602}
+  mapGenerator: {fileID: 0}
   rotateAction: {fileID: 2437255992003679575, guid: 0c78d257e86710f4dbed3e6156f03e95,
     type: 3}
   zoomAction: {fileID: -5315006897275376007, guid: 0c78d257e86710f4dbed3e6156f03e95,
@@ -616,7 +617,7 @@ Canvas:
   m_GameObject: {fileID: 8079172234788604295}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 6179009994430847828}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

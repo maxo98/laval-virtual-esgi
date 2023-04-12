@@ -7,14 +7,19 @@ public class PlayerManager : MonoBehaviour
 {
     
     [SerializeField] private List<GameObject> playerPrefabs;
+    [SerializeField] private Generator generator;
     
     // Start is called before the first frame update
     void Start()
     {
 #if UNITY_STANDALONE_WIN
-        PhotonNetwork.Instantiate(playerPrefabs[0].name, new Vector3(0, 0, 0), new Quaternion());
+        var player = PhotonNetwork.Instantiate(playerPrefabs[0].name, new Vector3(0, 0, 0), new Quaternion());
+        var playerController = player.GetComponent<ComputerPlayerController>();
+        generator.camera = playerController.target.transform;
+        playerController.mapGenerator = generator;
+        generator.GenerateMap();
 #else
-            PhotonNetwork.Instantiate(playerPrefabs[1].name, new Vector3(0, 0, 0), new Quaternion());
+        var player = PhotonNetwork.Instantiate(playerPrefabs[1].name, new Vector3(0, 0, 0), new Quaternion());
 #endif
     }
 

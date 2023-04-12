@@ -7,6 +7,7 @@ namespace DragAndDropObjects
     {
         public ComputerPlayerController controller;
         public DragAndDropManager dragAndDropManager;
+        public Generator mapGenerator;
         public GeneratorType type;
         public float EnergyProduced { get; }
         public bool IsPlaced { private get; set; }
@@ -28,30 +29,60 @@ namespace DragAndDropObjects
 
         void CanBePlaced()
         {
-            
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (type == GeneratorType.Nuclear && other.gameObject.CompareTag("Plain"))
+            switch (type)
             {
-                controller.DraggedObjectCanBePlaced = true;
-            }
-            else if(type == GeneratorType.Hydro && other.gameObject.CompareTag("River"))
-                if(dragAndDropManager.HasObjectOfType(GeneratorType.Hydro))
+                case GeneratorType.Nuclear:
+                {
+                    var position = gameObject.transform.position;
+                    var tileType = mapGenerator.grid[(int)position.x, (int)position.z];
+                    if (tileType != Generator.GridCase.Plain) break;
                     controller.DraggedObjectCanBePlaced = true;
-            
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (type == GeneratorType.Nuclear && other.gameObject.CompareTag("Plain"))
-            {
-                controller.DraggedObjectCanBePlaced = false;
+                    // var startX = 0;
+                    // var startZ = 0;
+                    // var endX = 0;
+                    // var endZ = 0;
+                    // if ((int)position.x != 0)
+                    // {
+                    //     startX = (int)position.x - 1;
+                    //     if ((int)position.x == mapGenerator.mapSize)
+                    //         endX = mapGenerator.mapSize;
+                    //     else
+                    //         endX = (int)position.x + 1;
+                    // }
+                    // else
+                    // {
+                    //     startX = 0;
+                    //     endX = (int)position.x + 1;
+                    // }
+                    // if ((int)position.z != 0)
+                    // {
+                    //     startZ = (int)position.z - 1;
+                    //     if ((int)position.z == mapGenerator.mapSize)
+                    //         endZ = mapGenerator.mapSize;
+                    //     else
+                    //         endZ = (int)position.z + 1;
+                    // }
+                    // else
+                    // {
+                    //     startZ = 0;
+                    //     endZ = (int)position.z + 1;
+                    // }
+                    //
+                    // var isNextToRiver = false;
+                    // for (var i = startX; i < endX; i++)
+                    // {
+                    //     for (var j = startZ; i < endZ; j++)
+                    //     {
+                    //         if (mapGenerator.grid[(int)position.x, (int)position.z] != Generator.GridCase.River)
+                    //             continue;
+                    //         isNextToRiver = true;
+                    //         break;
+                    //     }
+                    // }
+                    // controller.DraggedObjectCanBePlaced = isNextToRiver;
+                    break;
+                }
             }
-            else if(type == GeneratorType.Hydro && other.gameObject.CompareTag("River"))
-                if(dragAndDropManager.HasObjectOfType(GeneratorType.Hydro))
-                    controller.DraggedObjectCanBePlaced = false;
         }
     }
 }
