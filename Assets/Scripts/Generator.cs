@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    public GameObject City;
+    public List<GameObject> cityPrefabs;
 
     public List<GameObject> buildingsPrefab;
     public List<GridCase> buildingsEnum;
@@ -46,6 +46,9 @@ public class Generator : MonoBehaviour
         City,
         Hospital,
         Fireman,
+        WorkingBuilding,
+        Commercial,
+        Cinema,
         Mountain,
         Plain,
         River
@@ -301,7 +304,7 @@ public class Generator : MonoBehaviour
                 switch(grid[x, y])
                 {
                     case GridCase.City:
-                        newInstant = City;
+                        newInstant = cityPrefabs[Random.Range(0, cityPrefabs.Count)];
                         break;
 
                     case GridCase.River:

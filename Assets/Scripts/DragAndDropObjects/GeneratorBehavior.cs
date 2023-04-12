@@ -29,11 +29,14 @@ namespace DragAndDropObjects
 
         void CanBePlaced()
         {
+            var position = gameObject.transform.position;
+            if ((int)position.x < 0 || (int)position.x > mapGenerator.mapSize || (int)position.y < 0 ||
+                (int)position.y > mapGenerator.mapSize) return;
             switch (type)
             {
                 case GeneratorType.Nuclear:
                 {
-                    var position = gameObject.transform.position;
+                    
                     var tileType = mapGenerator.grid[(int)position.x, (int)position.z];
                     if (tileType != Generator.GridCase.Plain) break;
                     controller.DraggedObjectCanBePlaced = true;
