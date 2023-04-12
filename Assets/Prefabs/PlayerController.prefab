@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 736981331181730868}
   - component: {fileID: 3976003096146137998}
   - component: {fileID: 5735118593779046650}
+  - component: {fileID: 849254698210562794}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -61,6 +62,8 @@ MonoBehaviour:
   zoomSpeed: 5
   constructionsPrefab:
   - {fileID: 2089918484872568400, guid: 12b8939f662cdcf40b4f6f5ac1894499, type: 3}
+  photonView: {fileID: 0}
+  photonTransformView: {fileID: 0}
 --- !u!114 &5735118593779046650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +95,28 @@ MonoBehaviour:
   m_DefaultActionMap: ComputerGameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 6179009994430847828}
+--- !u!114 &849254698210562794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459469303964461394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1524504683752645602
 GameObject:
   m_ObjectHideFlags: 0
