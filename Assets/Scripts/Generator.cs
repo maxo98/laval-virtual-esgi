@@ -34,6 +34,8 @@ public class Generator : MonoBehaviour
     public Transform camera;
     public int consomation = 0;
 
+    public ScoreUpdate scoreUpdate;
+
     public enum CitySizeType
     {
         Small,
@@ -319,6 +321,10 @@ public class Generator : MonoBehaviour
         }
 
         camera.position = new Vector3(mapSize / 2, camera.position.y, mapSize / 2);
+
+        // scoreUpdate.conso = consomation;
+        
+        scoreUpdate.photonView.RPC("ShareConso",RpcTarget.OthersBuffered,consomation);
     }
 
     // Update is called once per frame
