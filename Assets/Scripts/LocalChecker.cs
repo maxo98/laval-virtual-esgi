@@ -12,7 +12,8 @@ public class LocalChecker : MonoBehaviour
     [SerializeField] private TrackedPoseDriver _trackedPoseDriver;
     [SerializeField] private HandVisualizer _handVisualizer;
     [SerializeField] private MeshRenderer head;
-    
+
+
     void Start()
     {
         if (photonView.IsMine)
@@ -32,6 +33,7 @@ public class LocalChecker : MonoBehaviour
             head.enabled=isVr;
             
         }
+        
     }
 
     // Update is called once per frame
