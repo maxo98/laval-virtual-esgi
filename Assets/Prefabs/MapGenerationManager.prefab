@@ -68,7 +68,7 @@ MonoBehaviour:
   consoMediumMin: 6000
   consoBigMax: 10000
   consoBigMin: 90000
-  River: {fileID: 6119894953415040910, guid: 69ee72eb02153ba4ba738bf2d234336a, type: 3}
+  River: {fileID: 7350935367518782538, guid: 2112cba0221c1544eb3f54de942f1cb0, type: 3}
   biomePrefab:
   - {fileID: 7784687312586007977, guid: 739f770842ded684ea8e0c1f82cad778, type: 3}
   - {fileID: 8444859899575150246, guid: 77e4af2a66a0c5f44b65dfc078420696, type: 3}
