@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photonView: {fileID: 2765092598535343184}
-  camera: {fileID: 5464137023626230846}
+  camera: {fileID: 5464137023626230840}
   isVr: 1
   leftHand: {fileID: 3496063088820578037}
   rightHand: {fileID: 6592497836049651664}
@@ -322,17 +322,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2865534249959514053, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
         type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 6495297468256292528}
+    - target: {fileID: 2865534249959514053, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
+        type: 3}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2526589105766623753}
     - target: {fileID: 2865534249959514053, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
         type: 3}
       propertyPath: ObservedComponents.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8482795619708387355}
     - target: {fileID: 5354633217624420267, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354633217624420269, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5354633217624420269, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
@@ -433,6 +443,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1314708140249937768, guid: de839e9ba8a2982459c6aee6f0d4ccc4, type: 3}
     - {fileID: 2540491578221262246, guid: de839e9ba8a2982459c6aee6f0d4ccc4, type: 3}
+    - {fileID: 3622021598632101478, guid: de839e9ba8a2982459c6aee6f0d4ccc4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de839e9ba8a2982459c6aee6f0d4ccc4, type: 3}
 --- !u!4 &717553304455324241 stripped
 Transform:
@@ -458,6 +469,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 115960159956603797}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &5464137023626230840 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5354633217624420269, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 115960159956603797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5464137023626230845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5354633217624420264, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
@@ -470,6 +487,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 115960159956603797}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6495297468256292528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464137023626230846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 0
 --- !u!4 &5512861406746780759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5555866456435308482, guid: de839e9ba8a2982459c6aee6f0d4ccc4,
@@ -578,7 +611,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!1001 &6895657005230592696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2798,4 +2831,4 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
