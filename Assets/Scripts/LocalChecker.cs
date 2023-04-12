@@ -17,8 +17,11 @@ public class LocalChecker : MonoBehaviour
         if (photonView.IsMine)
         {
             camera.enabled = true;
-            _trackedPoseDriver.enabled = isVr;
-            _handVisualizer.enabled = isVr;
+            if (isVr)
+            {
+                _trackedPoseDriver.enabled = isVr;
+                _handVisualizer.enabled = isVr;
+            }
         }
         else
         {
