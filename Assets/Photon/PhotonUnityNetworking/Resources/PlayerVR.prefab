@@ -4609,7 +4609,7 @@ MonoBehaviour:
   rightHand: {fileID: 680291949206653000}
   _trackedPoseDriver: {fileID: 6943613596731279309}
   _handVisualizer: {fileID: 680291948223700056}
-  head: {fileID: 3572154715358912064}
+  head: {fileID: 2237775282862312127}
 --- !u!1 &2559603034846456881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,7 +5794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2139263703866835495
 Transform:
   m_ObjectHideFlags: 0
@@ -5825,7 +5825,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3572154715358912064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

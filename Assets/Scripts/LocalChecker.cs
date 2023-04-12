@@ -11,7 +11,7 @@ public class LocalChecker : MonoBehaviour
     [SerializeField] private GameObject leftHand, rightHand;
     [SerializeField] private TrackedPoseDriver _trackedPoseDriver;
     [SerializeField] private HandVisualizer _handVisualizer;
-    [SerializeField] private GameObject head;
+    [SerializeField] private MeshRenderer head;
     
     void Start()
     {
@@ -28,7 +28,8 @@ public class LocalChecker : MonoBehaviour
         {
             leftHand.SetActive(isVr);
             rightHand.SetActive(isVr);
-            head.SetActive(isVr);
+            
+            head.enabled=isVr;
             
         }
     }
