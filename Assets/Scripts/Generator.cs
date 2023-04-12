@@ -19,6 +19,8 @@ public class Generator : MonoBehaviour
     public double cityEnvRatio;
     public CitySizeType cityType;
 
+    public Transform camera;
+
     public enum CitySizeType
     {
         Small,
@@ -284,9 +286,11 @@ public class Generator : MonoBehaviour
                         break;
                 }
 
-                Instantiate(newInstant, new Vector3(x - mapSize/2, 0, y - mapSize/2), new Quaternion());
+                Instantiate(newInstant, new Vector3(x, 0, y), new Quaternion());
             }
         }
+
+        camera.position = new Vector3(mapSize / 2, camera.position.y, mapSize / 2);
     }
 
     // Update is called once per frame
