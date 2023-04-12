@@ -4511,8 +4511,8 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2870180764080451233}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7446542379707933841}
+  - {fileID: 3473717161317466582}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -4533,7 +4533,8 @@ MonoBehaviour:
   isVr: 1
   leftHand: {fileID: 680291948155355397}
   rightHand: {fileID: 680291949206653000}
-  _trackedPoseDriver: {fileID: 0}
+  _trackedPoseDriver: {fileID: 6943613596731279309}
+  _handVisualizer: {fileID: 680291948223700056}
 --- !u!1 &2469462512191486230
 GameObject:
   m_ObjectHideFlags: 0
