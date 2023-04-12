@@ -635,7 +635,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  m_UseLocal: 1
 --- !u!1 &680291948155355397
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  m_UseLocal: 1
 --- !u!1 &680291948223700062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  m_UseLocal: 1
 --- !u!1 &680291949206653000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,7 +4487,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  m_UseLocal: 1
 --- !u!1 &2446833036475811187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,8 +4579,14 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2870180764080451233}
+  - {fileID: 7008137355897169621}
+  - {fileID: 6265693950618567507}
   - {fileID: 4650533964861758320}
+  - {fileID: 6572365583111265971}
+  - {fileID: 9185859760171332710}
   - {fileID: 3796738541022479756}
+  - {fileID: 104654981005760919}
+  - {fileID: 8028035870621277783}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -15423,7 +15429,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  m_UseLocal: 1
 --- !u!1 &8342052405487075466
 GameObject:
   m_ObjectHideFlags: 0
@@ -16152,7 +16158,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  m_UseLocal: 1
 --- !u!1 &8932321314350938883
 GameObject:
   m_ObjectHideFlags: 0
