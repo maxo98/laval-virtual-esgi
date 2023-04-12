@@ -50,7 +50,7 @@ public class ComputerPlayerController : MonoBehaviour
     {
         var plane = new Plane(Vector3.up, new Vector3(0 ,0,0));
         var ray = camera.ScreenPointToRay(mousePosition.action.ReadValue<Vector2>());
-        if (!plane.Raycast(ray, out var hit)) return;
+       if (!plane.Raycast(ray, out var hit)) return;
         //if (!Physics.Raycast(ray, out var hit, 100)) return;
         var position = ray.GetPoint(hit);
         position.y = 1;

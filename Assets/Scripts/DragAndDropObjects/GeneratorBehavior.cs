@@ -31,7 +31,10 @@ namespace DragAndDropObjects
         {
             var position = gameObject.transform.position;
             if ((int)position.x < 0 || (int)position.x > mapGenerator.mapSize || (int)position.y < 0 ||
-                (int)position.y > mapGenerator.mapSize) return;
+                (int)position.y > mapGenerator.mapSize)
+            {
+                controller.DraggedObjectCanBePlaced = false;
+            }
             switch (type)
             {
                 case GeneratorType.Nuclear:
