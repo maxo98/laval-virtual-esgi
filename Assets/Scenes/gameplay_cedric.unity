@@ -161,6 +161,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304997030315972032, guid: 9e63a8266b19d5140ae589f85b304f81,
+        type: 3}
+      propertyPath: cityPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2794011366948907617, guid: 9e63a8266b19d5140ae589f85b304f81,
         type: 3}
       propertyPath: m_RootOrder

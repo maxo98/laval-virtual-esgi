@@ -145,4 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree: {fileID: 919132149155446097, guid: df25177d75ca0994abb80a3f177bfe16, type: 3}
   scale: {x: 0.02, y: 0.02, z: 0.02}
-  nTrees: 2
+  nTrees: 1

@@ -17,7 +17,8 @@ public class PlainGenerator : MonoBehaviour
 
             quat.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
 
-            Instantiate(tree, new Vector3(Random.Range(-4f, 4f), 0, Random.Range(-4f, 4f)), quat);
+            GameObject newTree = Instantiate(tree, transform.position + new Vector3(Random.Range(-0.4f, 0.4f), 0, Random.Range(-0.4f, 0.4f)), quat, transform);
+            newTree.transform.localScale = scale;
         }
     }
 
