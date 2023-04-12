@@ -11,7 +11,6 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("test");
 #if UNITY_STANDALONE_WIN
         var player = PhotonNetwork.Instantiate(playerPrefabs[0].name, new Vector3(0, 0, 0), new Quaternion());
         var playerController = player.GetComponent<ComputerPlayerController>();

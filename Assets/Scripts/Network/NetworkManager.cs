@@ -7,10 +7,11 @@ namespace Network
 {
     public class NetworkManager : MonoBehaviourPunCallbacks
     {
+        [SerializeField] private List<GameObject> playerPrefabs;
+        [SerializeField] private Generator generator;
+        
         private static NetworkManager instance = null;
         public static NetworkManager Instance => instance;
-
-     
 
         #region Private Fields
 
@@ -38,17 +39,29 @@ namespace Network
             PhotonNetwork.AutomaticallySyncScene = true;
             DontDestroyOnLoad(instance);
         }
+
+        void Start()
+        {
+            Debug.Log("start function");
+            Connect();
+        }
         #endregion
 
         #region MonoBehaviourPunCallbacks Callbacks
 
         public override void OnJoinedRoom()
         {
-            if (PhotonNetwork.IsMasterClient)
-                GameManager.Instance.LoadGameScene();
-            else
-                GameManager.Instance.LoadCurrentScene();
-            
+            Debug.Log("on joined room function");
+#if UNITY_STANDALONE_WIN && UNITY_EDITOR
+            var player = PhotonNetwork.Instantiate(playerPrefabs[0].name, new Vector3(0, 0, 0), new Quaternion());
+            var playerController = player.GetComponent<ComputerPlayerController>();
+            generator.camera = playerController.target.transform;
+            playerController.mapGenerator = generator;
+            generator.GenerateMap();
+#else
+            PhotonNetwork.Instantiate(playerPrefabs[1].name, new Vector3(0, 0, 0), new Quaternion());
+#endif
+
             //photonView.RPC("TurnOnLight",RpcTarget.All,"vrai");
         }
 
@@ -97,6 +110,7 @@ namespace Network
         /// </summary>
         public void Connect()
         {
+            Debug.Log("Connect function");
             if (PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.JoinRandomRoom();
