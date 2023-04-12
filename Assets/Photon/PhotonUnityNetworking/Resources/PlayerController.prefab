@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 736981331181730868}
   - component: {fileID: 3976003096146137998}
   - component: {fileID: 5735118593779046650}
+  - component: {fileID: 8216663565055899066}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25472b3800193948b682786c480852d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragAndDropManager: {fileID: 8216663565055899066}
   camera: {fileID: 6179009994430847828}
   target: {fileID: 1524504683752645602}
   rotateAction: {fileID: 2437255992003679575, guid: 0c78d257e86710f4dbed3e6156f03e95,
@@ -59,10 +61,8 @@ MonoBehaviour:
     type: 3}
   rotationSpeed: 80
   zoomSpeed: 5
-  constructionsPrefab:
+  generatorPrefabs:
   - {fileID: 2089918484872568400, guid: 12b8939f662cdcf40b4f6f5ac1894499, type: 3}
-  photonView: {fileID: 0}
-  photonTransformView: {fileID: 0}
 --- !u!114 &5735118593779046650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +94,19 @@ MonoBehaviour:
   m_DefaultActionMap: ComputerGameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 6179009994430847828}
+--- !u!114 &8216663565055899066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459469303964461394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c9756ce577de845bf2bfeb081e17bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedGenerators: []
 --- !u!1 &1524504683752645602
 GameObject:
   m_ObjectHideFlags: 0

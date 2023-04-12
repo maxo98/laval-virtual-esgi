@@ -16,7 +16,7 @@ public class Generator : MonoBehaviour
     public GameObject River;
     public List<GameObject> biomePrefab;
     public List<GridCase> biomeEnum;
-
+    public double cityEnvRatio;
     public CitySizeType cityType;
 
     public enum CitySizeType
@@ -77,7 +77,7 @@ public class Generator : MonoBehaviour
         }
 
         citySize = Random.Range(cityMin, cityMax);
-        mapSize = (int)((double)citySize * 2.0);
+        mapSize = (int)(citySize * cityEnvRatio);
 
         grid = new GridCase[mapSize, mapSize];
 

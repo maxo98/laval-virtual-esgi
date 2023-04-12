@@ -1,21 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DragAndDropObjects;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ComputerPlayerController : MonoBehaviour
 {
+    [SerializeField] private DragAndDropManager dragAndDropManager;
     [SerializeField] private Camera camera;
     [SerializeField] private GameObject target;
     [SerializeField] private InputActionReference rotateAction, zoomAction, mouseLeftClick, mousePosition;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float zoomSpeed;
-    [SerializeField] private List<GameObject> constructionsPrefab;
-    [SerializeField] private PhotonView photonView;
-    [SerializeField] private PhotonTransformView photonTransformView;
+    [SerializeField] private List<GameObject> generatorPrefabs;
     public bool IsSinglePlayer { get; set; }
+    public bool DraggedObjectCanBePlaced { private get; set; }
     
     // camera movements
     private float _rotation;
@@ -48,14 +49,16 @@ public class ComputerPlayerController : MonoBehaviour
     {
         var ray = camera.ScreenPointToRay(mousePosition.action.ReadValue<Vector2>());
         if (!Physics.Raycast(ray, out var hit, 100)) return;
-        if (!hit.collider.gameObject.CompareTag("Map")) return;
-        _grabbedObject.transform.position = hit.point;
+        _grabbedObject.transform.position = new Vector3(hit.point.x, _grabbedObject.transform.position.y, hit.point.z);
     }
 
     void OnMouseLeftClickOn(InputAction.CallbackContext context)
     {
-        if (_objectGrabbed)
+        if (_objectGrabbed && DraggedObjectCanBePlaced)
+        {
             _objectGrabbed = false;
+            dragAndDropManager.placedGenerators.Add(_grabbedObject.GetComponent<GeneratorBehavior>());
+        }
         else
         {
             var ray = camera.ScreenPointToRay(mousePosition.action.ReadValue<Vector2>());
@@ -75,13 +78,17 @@ public class ComputerPlayerController : MonoBehaviour
     {
         if (IsSinglePlayer)
         {
-            _grabbedObject = Instantiate(constructionsPrefab[type]); // instanciation des objets a placé dans la scene
-            _grabbedObject.transform.position = new Vector3(0, 0, 0);
+            _grabbedObject = Instantiate(generatorPrefabs[type]); // instanciation des objets a placé dans la scene
+            _grabbedObject.transform.position = new Vector3(0, 1, 0);
+            _grabbedObject.GetComponent<GeneratorBehavior>().controller = this;
+            _grabbedObject.GetComponent<GeneratorBehavior>().dragAndDropManager = dragAndDropManager;
         }
         else
         {
-            _grabbedObject = PhotonNetwork.Instantiate(constructionsPrefab[type].name, new Vector3(0, 0, 0), Quaternion.identity);
+            _grabbedObject = PhotonNetwork.Instantiate(generatorPrefabs[type].name, new Vector3(0, 1, 0), Quaternion.identity);
             _objectGrabbed = true;
+            _grabbedObject.GetComponent<GeneratorBehavior>().controller = this;
+            _grabbedObject.GetComponent<GeneratorBehavior>().dragAndDropManager = dragAndDropManager;
         }
         
     }

@@ -13,7 +13,11 @@ public struct GeneratorData
     public float ElectricityProduction { get; set; }
 }
 
-public enum ConstructionType
+public enum GeneratorType
 {
-    Generator
+    Nuclear,
+    Hydro,
+    Solar,
+    CitySolar,
+    Wind,
 }
