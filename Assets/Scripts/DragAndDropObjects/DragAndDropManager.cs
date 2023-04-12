@@ -6,6 +6,8 @@ namespace DragAndDropObjects
 {
     public class DragAndDropManager : MonoBehaviour
     {
+        int score = 0;
+
         public List<GeneratorBehavior> placedGenerators;
         // Start is called before the first frame update
         void Start()
@@ -16,7 +18,12 @@ namespace DragAndDropObjects
         // Update is called once per frame
         void Update()
         {
-        
+            score = 0;
+
+            for(int i = 0; i < placedGenerators.Count; i++)
+            {
+                score += (int)placedGenerators[i].EnergyProduced;
+            }
         }
 
         public bool HasObjectOfType(GeneratorType type)
