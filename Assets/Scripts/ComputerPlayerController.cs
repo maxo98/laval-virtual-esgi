@@ -6,7 +6,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ComputerPlayerController : MonoBehaviour
+public class ComputerPlayerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private DragAndDropManager dragAndDropManager;
     [SerializeField] private Camera camera;
