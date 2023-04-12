@@ -477,7 +477,6 @@ GameObject:
   - component: {fileID: 680291947614419157}
   - component: {fileID: 680291947614419156}
   - component: {fileID: 680291947614419159}
-  - component: {fileID: 3796738541022479756}
   m_Layer: 0
   m_Name: Poke Interactor
   m_TagString: Untagged
@@ -620,22 +619,6 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_HasMigratedActions: 1
---- !u!114 &3796738541022479756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680291947614419162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &680291948155355397
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +632,6 @@ GameObject:
   - component: {fileID: 680291948155355393}
   - component: {fileID: 7086660479960814517}
   - component: {fileID: 8310423527736160881}
-  - component: {fileID: 7008137355897169621}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -950,22 +932,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7008137355897169621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680291948155355397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &680291948223700062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +999,6 @@ GameObject:
   - component: {fileID: 680291948550543974}
   - component: {fileID: 680291948550543969}
   - component: {fileID: 680291948550543968}
-  - component: {fileID: 4650533964861758320}
   m_Layer: 0
   m_Name: Poke Interactor
   m_TagString: Untagged
@@ -1176,22 +1141,6 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_HasMigratedActions: 1
---- !u!114 &4650533964861758320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680291948550543975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &680291949206653000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1154,6 @@ GameObject:
   - component: {fileID: 680291949206652996}
   - component: {fileID: 7803813367027839779}
   - component: {fileID: 3655328845410480454}
-  - component: {fileID: 6265693950618567507}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -1506,22 +1454,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6265693950618567507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680291949206653000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &720455869517699148
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,7 +4379,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3072618333391678523}
-  - component: {fileID: 9185859760171332710}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -4472,22 +4403,6 @@ Transform:
   m_Father: {fileID: 680291948155355396}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9185859760171332710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2445439981328119425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &2446833036475811187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,14 +4494,14 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2870180764080451233}
-  - {fileID: 7008137355897169621}
-  - {fileID: 6265693950618567507}
-  - {fileID: 4650533964861758320}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6572365583111265971}
-  - {fileID: 9185859760171332710}
-  - {fileID: 3796738541022479756}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 104654981005760919}
-  - {fileID: 8028035870621277783}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -15282,7 +15197,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 0}
+  m_ModelPrefab: {fileID: 8161676343352636812}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -15622,7 +15537,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 0}
+  m_ModelPrefab: {fileID: 3072618333391678523}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -16162,7 +16077,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8161676343352636812}
-  - component: {fileID: 8028035870621277783}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -16187,22 +16101,6 @@ Transform:
   m_Father: {fileID: 680291949206653003}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8028035870621277783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8795470461523619638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 0
 --- !u!1 &8932321314350938883
 GameObject:
   m_ObjectHideFlags: 0
