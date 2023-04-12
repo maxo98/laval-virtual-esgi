@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de80976cbd48634fb1c6a28525c0d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
+  photonView: {fileID: 4566721274130086132}
   camera: {fileID: 6179009994430847828}
   isVr: 0
   leftHand: {fileID: 0}
