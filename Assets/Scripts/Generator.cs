@@ -324,7 +324,7 @@ public class Generator : MonoBehaviour
 
         // scoreUpdate.conso = consomation;
         
-        scoreUpdate.photonView.RPC("ShareConso",RpcTarget.OthersBuffered,consomation);
+        scoreUpdate.photonView.RPC("ShareConso",RpcTarget.AllBuffered,consomation);
     }
 
     // Update is called once per frame

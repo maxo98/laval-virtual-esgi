@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 
 namespace DragAndDropObjects
 {
     public class DragAndDropManager : MonoBehaviour
     {
+        public PhotonView photonView;
         int score = 0;
 
         public List<GeneratorBehavior> placedGenerators;
@@ -23,6 +25,7 @@ namespace DragAndDropObjects
             for(int i = 0; i < placedGenerators.Count; i++)
             {
                 score += (int)placedGenerators[i].EnergyProduced;
+                //photonView.RPC("ShareScore", RpcTarget.AllBuffered, score);
             }
         }
 
