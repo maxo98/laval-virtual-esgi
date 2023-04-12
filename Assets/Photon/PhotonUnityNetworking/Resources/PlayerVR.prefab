@@ -4845,13 +4845,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8342052404771622227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f82073f8acb5098439aea9e3c8f4961e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 6604693237221780545}
-  isLeft: 0
+  handToAttach: {fileID: 8795470461523619638}
 --- !u!135 &6730794725142453210
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5207,7 +5207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 6604693237221780545}
-  isLeft: 0
+  handToAttach: {fileID: 2445439981328119425}
 --- !u!135 &6730794724785608195
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5441,7 +5441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 0}
-  isLeft: 1
+  handToAttach: {fileID: 0}
 --- !u!1 &8932321314350938883
 GameObject:
   m_ObjectHideFlags: 0
