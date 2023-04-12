@@ -128,6 +128,7 @@ MonoBehaviour:
   rightHand: {fileID: 0}
   _trackedPoseDriver: {fileID: 0}
   _handVisualizer: {fileID: 0}
+  head: {fileID: 0}
 --- !u!1 &1524504683752645602
 GameObject:
   m_ObjectHideFlags: 0
