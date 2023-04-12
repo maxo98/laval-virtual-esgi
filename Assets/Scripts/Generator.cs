@@ -51,7 +51,8 @@ public class Generator : MonoBehaviour
         Cinema,
         Mountain,
         Plain,
-        River
+        River,
+        School
     }
 
     public int mapSize;
